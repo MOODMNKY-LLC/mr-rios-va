@@ -73,7 +73,7 @@ export default function App({ Component, pageProps }: AppProps) {
             bottom: 20,
             size: "medium",
             iconColor: "white",
-            customIconSrc: "https://cdn.shopify.com/s/files/1/0693/4328/1426/files/CODE_MNKY_SVG.svg",
+            customIconSrc: "https://cdn.shopify.com/s/files/1/0693/4328/1426/files/MrRios.svg?",
           },
           chatWindow: {
             welcomeMessage: "Welcome back Greg! How may I be of assistance?!",
