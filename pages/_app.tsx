@@ -2,6 +2,7 @@
 import * as React from 'react'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
+import { BubbleChat } from 'flowise-embed-react'; // Import BubbleChat
 
 import * as Fathom from 'fathom-client'
 // used for rendering equations (optional)
@@ -60,6 +61,49 @@ export default function App({ Component, pageProps }: AppProps) {
       router.events.off('routeChangeComplete', onRouteChangeComplete)
     }
   }, [router.events])
-
-  return <Component {...pageProps} />
+  return (
+    <>
+      <BubbleChat
+        chatflowid="8d0d76c2-ca5b-4f67-b4cc-047f3be04f34"
+        apiHost="https://flowise-workstation.moodmnky.com"
+        theme={{
+          button: {
+            backgroundColor: "#FFFFFF",
+            right: 20,
+            bottom: 20,
+            size: "medium",
+            iconColor: "white",
+            customIconSrc: "https://cdn.shopify.com/s/files/1/0693/4328/1426/files/CODE_MNKY_SVG.svg",
+          },
+          chatWindow: {
+            welcomeMessage: "Welcome back Greg! How may I be of assistance?!",
+            backgroundColor: "#FFFFFF",
+            height: 700,
+            width: 400,
+            fontSize: 16,
+            poweredByTextColor: "#FFFFFF",
+            botMessage: {
+              backgroundColor: "#D0021B",
+              textColor: "#FFFFFF",
+              showAvatar: true,
+              avatarSrc: "https://cdn.shopify.com/s/files/1/0693/4328/1426/files/MrRios.png",
+            },
+            userMessage: {
+              backgroundColor: "#4A90E2",
+              textColor: "#ffffff",
+              showAvatar: false,
+              avatarSrc: "https://cdn.discordapp.com/attachments/1083532452347269220/1198302011888767156/5bda0b7be46cb971021b7630_sctc-logos-03_1_1.png",
+            },
+            textInput: {
+              placeholder: "Type your question",
+              backgroundColor: "#4A90E2",
+              textColor: "#ffffff",
+              sendButtonColor: "#D0021B",
+            }
+          }
+        }}
+      />
+  <Component {...pageProps} />
+  </>
+  );
 }
